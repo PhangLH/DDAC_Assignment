@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="DDAC_Assignment.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
+    <h2><%: Title %></h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
@@ -34,6 +34,25 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="tboxName" CssClass="col-md-2 control-label">Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="tboxName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="tboxName" 
+                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The name field is required" />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="tboxContactNo" CssClass="col-md-2 control-label">Contact No</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="tboxContactNo" TextMode="Phone" CssClass="form-control" />
+                <asp:RegularExpressionValidator ID="revPhone" runat="server"
+                   ErrorMessage="Not a valid phone" ControlToValidate="tboxContactNo" CssClass="text-danger" Display="Dynamic"
+                   ValidationExpression="0[0-9]{9,10}" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="tboxContactNo" 
+                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The contact no field is required" />
             </div>
         </div>
         <div class="form-group">
