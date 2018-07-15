@@ -86,7 +86,7 @@ namespace DDAC_Assignment
                 //customer role
                 if (myRole.Equals("1"))
                 {
-                    btn_home.Visible = true;
+                    btn_checkMyShipping.Visible = true;
                     btn_newShipping.Visible = true;
                     btn_login.Visible = false;
                     btn_register.Visible = false;

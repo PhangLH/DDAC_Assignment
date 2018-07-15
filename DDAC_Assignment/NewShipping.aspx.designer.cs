@@ -10,78 +10,87 @@
 namespace DDAC_Assignment {
     
     
-    public partial class SiteMaster {
+    public partial class NewShipping {
         
         /// <summary>
-        /// btn_checkMyShipping control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_checkMyShipping;
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// btn_newShipping control.
+        /// ddlStartPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_newShipping;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStartPort;
         
         /// <summary>
-        /// btn_contact control.
+        /// dsAllPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_contact;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsAllPort;
         
         /// <summary>
-        /// btn_register control.
+        /// ddlEndPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_register;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEndPort;
         
         /// <summary>
-        /// btn_login control.
+        /// ddlShip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_login;
+        protected global::System.Web.UI.WebControls.DropDownList ddlShip;
         
         /// <summary>
-        /// btn_manageaccount control.
+        /// dsShip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_manageaccount;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsShip;
         
         /// <summary>
-        /// btn_logout control.
+        /// ddlContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_logout;
+        protected global::System.Web.UI.WebControls.DropDownList ddlContainer;
         
         /// <summary>
-        /// MainContent control.
+        /// dsContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsContainer;
+        
+        /// <summary>
+        /// btnNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNext;
     }
 }
