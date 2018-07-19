@@ -85,6 +85,24 @@ namespace DDAC_Assignment {
         protected global::System.Web.UI.WebControls.SqlDataSource dsContainer;
         
         /// <summary>
+        /// tboxDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxDesc;
+        
+        /// <summary>
+        /// tboxPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tboxPrice;
+        
+        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
