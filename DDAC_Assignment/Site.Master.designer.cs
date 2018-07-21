@@ -13,6 +13,15 @@ namespace DDAC_Assignment {
     public partial class SiteMaster {
         
         /// <summary>
+        /// HeadContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        
+        /// <summary>
         /// btn_checkMyShipping control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,22 @@ namespace DDAC_Assignment {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_newShipping;
         
         /// <summary>
-        /// btn_contact control.
+        /// btn_staffApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_contact;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_staffApproval;
+        
+        /// <summary>
+        /// btn_staffReceival control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_staffReceival;
         
         /// <summary>
         /// btn_register control.

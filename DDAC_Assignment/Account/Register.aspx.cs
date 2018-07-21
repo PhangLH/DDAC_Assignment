@@ -49,7 +49,7 @@ namespace DDAC_Assignment.Account
             cmdCreateCustomerUser.Parameters["@roleId"].Value = WebConfigurationManager.AppSettings["CustomerRoleID"];
             cmdCreateCustomerUser.Parameters.Add("@name", SqlDbType.NVarChar);
             cmdCreateCustomerUser.Parameters["@name"].Value = tboxName.Text;
-            cmdCreateCustomerUser.Parameters.Add("@contactno", SqlDbType.Int);
+            cmdCreateCustomerUser.Parameters.Add("@contactno", SqlDbType.Char);
             cmdCreateCustomerUser.Parameters["@contactno"].Value = tboxContactNo.Text;
 
             conn.Open();

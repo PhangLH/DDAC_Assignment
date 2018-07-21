@@ -119,12 +119,12 @@ namespace DDAC_Assignment.Account
                         //Customer login
                         if (myRole.Equals("1"))
                         {
-                            Response.Redirect("/CheckMyShipping.aspx?id=" + myId + "",false);
+                            Response.Redirect("/CheckMyShipping",false);
                         }
                         //Staff login
                         else if (myRole.Equals("2"))
                         {
-
+                            Response.Redirect("~/Staff/StaffApproval", false);
                         }
                     }
                     else

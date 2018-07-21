@@ -79,27 +79,47 @@ namespace DDAC_Assignment
             //    {
             //    }
             //}
-            var loggedIn = Session["LoggedIn"];
-            if (loggedIn.Equals("true"))
-            {
-                var myRole = Session["UserRole"];
-                //customer role
-                if (myRole.Equals("1"))
-                {
-                    btn_checkMyShipping.Visible = true;
-                    btn_newShipping.Visible = true;
-                    btn_login.Visible = false;
-                    btn_register.Visible = false;
-                    btn_logout.Visible = true;
-                    btn_manageaccount.Visible = true;
-                }
-                //staff role
-                else if (myRole.Equals("2"))
-                {
 
-                }
+            object loggedIn = "";
+            try
+            {
+                loggedIn = Session["LoggedIn"];
             }
-            
+            catch (Exception ex)
+            {
+                Session["LoggedIn"] = "";
+            }
+            finally
+            {
+                if (loggedIn.ToString().Equals("true"))
+                {
+                    var myRole = Session["UserRole"];
+                    //customer role
+                    if (myRole.Equals("1"))
+                    {
+                        btn_staffReceival.Visible = false;
+                        btn_staffApproval.Visible = false;
+                        btn_checkMyShipping.Visible = true;
+                        btn_newShipping.Visible = true;
+                        btn_login.Visible = false;
+                        btn_register.Visible = false;
+                        btn_logout.Visible = true;
+                        btn_manageaccount.Visible = true;
+                    }
+                    //staff role
+                    else if (myRole.Equals("2"))
+                    {
+                        btn_staffReceival.Visible = true;
+                        btn_staffApproval.Visible = true;
+                        btn_checkMyShipping.Visible = false;
+                        btn_newShipping.Visible = false;
+                        btn_login.Visible = false;
+                        btn_register.Visible = false;
+                        btn_logout.Visible = true;
+                        btn_manageaccount.Visible = true;
+                    }
+                }
+            }            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -107,14 +127,14 @@ namespace DDAC_Assignment
             //Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
-        protected void logout_ServerClick(object sender, EventArgs e)
-        {
-            Session["UserId"] = "";
-            Session["UserEmail"] = "";
-            Session["UserRole"] = "";
-            Session["LoggedIn"] = "false";
-            Response.Redirect("/Account/Login",false);
-        }
+        //protected void logout_ServerClick(object sender, EventArgs e)
+        //{
+        //    Session["UserId"] = "";
+        //    Session["UserEmail"] = "";
+        //    Session["UserRole"] = "";
+        //    Session["LoggedIn"] = "false";
+        //    Response.Redirect("/Account/Login",false);
+        //}
     }
 
 }

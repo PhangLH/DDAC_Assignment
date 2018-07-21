@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Device.Location;
+using System.Web.Configuration;
 
 namespace DDAC_Assignment
 {
@@ -19,9 +20,9 @@ namespace DDAC_Assignment
             ddlEndPort.Items[0].Attributes.Add("disabled", "disabled");
         }
 
-        protected void Next_Click(object sender, EventArgs e)
+        protected void Create_Click(object sender, EventArgs e)
         {
-            var status = "PendingApproval";
+            var status = WebConfigurationManager.AppSettings["pendingStatusName"];
             int startportid = int.Parse(ddlStartPort.SelectedValue.Split(',')[2]);
             int endportid = int.Parse(ddlEndPort.SelectedValue.Split(',')[2]);
             var desc = tboxDesc.Text;
