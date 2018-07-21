@@ -34,5 +34,10 @@
             </SelectParameters>
         </asp:SqlDataSource>
 
+        <div class="form-horizontal">
+            <div class="form-group">
+                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no PendingApproval in this Port!</asp:Label>
+            </div>
+        </div>
      </div>
 </asp:Content>

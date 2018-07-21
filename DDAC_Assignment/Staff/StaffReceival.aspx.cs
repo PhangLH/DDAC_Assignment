@@ -15,7 +15,7 @@ namespace DDAC_Assignment.Staff
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CheckEmptyTable();
         }
 
         protected void gvStaffReceival_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -52,6 +52,19 @@ namespace DDAC_Assignment.Staff
                 {
                     Response.Redirect(Request.RawUrl);
                 }
+            }
+        }
+
+        private void CheckEmptyTable()
+        {
+            int rowCount = gvStaffReceival.Rows.Count;
+            if (rowCount.Equals(0))
+            {
+                lblEmptyTable.Visible = true;
+            }
+            else
+            {
+                lblEmptyTable.Visible = false;
             }
         }
     }

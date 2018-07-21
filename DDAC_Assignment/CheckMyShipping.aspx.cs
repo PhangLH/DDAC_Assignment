@@ -14,8 +14,7 @@ namespace DDAC_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ddlStartPort.Items[0].Attributes.Add("disabled", "disabled");
-            //ddlEndPort.Items[0].Attributes.Add("disabled", "disabled");
+            CheckEmptyTable();
         }
 
         protected void gvCheckShipping_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -70,6 +69,19 @@ namespace DDAC_Assignment
             //var conName = gvCheckShipping.Rows[rowIndex].Cells[9].Text;
             //var desc = gvCheckShipping.Rows[rowIndex].Cells[3].Text;
             //var price = gvCheckShipping.Rows[rowIndex].Cells[5].Text;
+        }
+
+        private void CheckEmptyTable()
+        {
+            int rowCount = gvCheckShipping.Rows.Count;
+            if (rowCount.Equals(0))
+            {
+                lblEmptyTable.Visible = true;
+            }
+            else
+            {
+                lblEmptyTable.Visible = false;
+            }
         }
     }
 }
