@@ -54,6 +54,34 @@
                         <li><a runat="server" id="btn_newShipping" href="~/NewShipping" visible="false">Create New Shipping</a></li>
                         <li><a runat="server" id="btn_staffApproval" href="~/Staff/StaffApproval" visible="false">Staff Approval</a></li>
                         <li><a runat="server" id="btn_staffReceival" href="~/Staff/StaffReceival" visible="false">Staff Receival</a></li>
+                        <li class="dropdown">
+                            <a href="#" runat="server" id="btn_manageUser" visible="false" data-toggle="dropdown">Manage User<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Admin/RegisterStaffUser" runat="server">Register Staff User</a></li>
+                                <li><a href="~/Admin/CheckUser" runat="server">Check User</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" runat="server" id="btn_managePort" visible="false" data-toggle="dropdown">Manage Port<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Admin/CreateNewPort" runat="server">Create New Port</a></li>
+                                <li><a href="~/Admin/CheckPort" runat="server">Check Port</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" runat="server" id="btn_manageShip" visible="false" data-toggle="dropdown">Manage Ship<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Admin/CreateNewShip" runat="server">Create New Ship</a></li>
+                                <li><a href="~/Admin/CheckShip" runat="server">Check Ship</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" runat="server" id="btn_manageContainer" visible="false" data-toggle="dropdown">Manage Container<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Admin/CreateNewContainer" runat="server">Create New Container</a></li>
+                                <li><a href="~/Admin/CheckContainer" runat="server">Check Container</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -74,7 +102,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" id="btn_register" href="~/Account/Register">Register</a></li>
                         <li><a runat="server" id="btn_login" href="~/Account/Login">Log in</a></li>
-                        <li><a runat="server" id="btn_manageaccount" href="~/Account/Manage" title="Manage your account" visible="false">Manage Account</a></li>
+                        <li class="dropdown">
+                            <a href="#" runat="server" id="btn_manageaccount" visible="false" data-toggle="dropdown">Manage Container<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Account/Manage" runat="server">Change Password</a></li>
+                            </ul>
+                        </li>
                         <li><a runat="server" id="btn_logout" href="~/Account/Logout" visible="false">Logout</a></li>
                     </ul>
                 </div>

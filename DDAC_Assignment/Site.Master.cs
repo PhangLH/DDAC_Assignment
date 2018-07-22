@@ -97,6 +97,10 @@ namespace DDAC_Assignment
                     //customer role
                     if (myRole.Equals("1"))
                     {
+                        btn_manageShip.Visible = false;
+                        btn_manageContainer.Visible = false;
+                        btn_manageUser.Visible = false;
+                        btn_managePort.Visible = false;
                         btn_staffReceival.Visible = false;
                         btn_staffApproval.Visible = false;
                         btn_checkMyShipping.Visible = true;
@@ -109,8 +113,28 @@ namespace DDAC_Assignment
                     //staff role
                     else if (myRole.Equals("2"))
                     {
+                        btn_manageShip.Visible = false;
+                        btn_manageContainer.Visible = false;
+                        btn_manageUser.Visible = false;
+                        btn_managePort.Visible = false;
                         btn_staffReceival.Visible = true;
                         btn_staffApproval.Visible = true;
+                        btn_checkMyShipping.Visible = false;
+                        btn_newShipping.Visible = false;
+                        btn_login.Visible = false;
+                        btn_register.Visible = false;
+                        btn_logout.Visible = true;
+                        btn_manageaccount.Visible = true;
+                    }
+                    //admin role
+                    else if (myRole.Equals("3"))
+                    {
+                        btn_manageShip.Visible = true;
+                        btn_manageContainer.Visible = true;
+                        btn_manageUser.Visible = true;
+                        btn_managePort.Visible = true;
+                        btn_staffReceival.Visible = false;
+                        btn_staffApproval.Visible = false;
                         btn_checkMyShipping.Visible = false;
                         btn_newShipping.Visible = false;
                         btn_login.Visible = false;

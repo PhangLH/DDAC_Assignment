@@ -23,21 +23,21 @@ namespace DDAC_Assignment.Account
             Session["UserRole"] = "";
             Session["LoggedIn"] = "false";
 
-            RegisterHyperLink.NavigateUrl = "Register";
-            // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
+            //RegisterHyperLink.NavigateUrl = "Register";
+            //// Enable this once you have account confirmation enabled for password reset functionality
+            ////ForgotPasswordHyperLink.NavigateUrl = "Forgot";
+            //OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
+            //var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+            //if (!String.IsNullOrEmpty(returnUrl))
+            //{
+            //    RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+            //}
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
+            //if (IsValid)
+            //{
 
                 //// Validate the user password
                 //var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -72,89 +72,94 @@ namespace DDAC_Assignment.Account
 
 
 
-                SqlConnection conn = new SqlConnection();
-                try
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                conn.Open();
+
+                SqlCommand cmdLoginCheck = new SqlCommand("SELECT use_id,use_email,use_password,rol_id FROM Users WHERE use_email=@email and use_password=@password", conn);
+                cmdLoginCheck.Parameters.Add(new SqlParameter("@email", Email.Text));
+                cmdLoginCheck.Parameters.Add(new SqlParameter("@password", Password.Text));
+                SqlDataReader dr = cmdLoginCheck.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    conn.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                    conn.Open();
+                    var myIdstr = dr["use_id"].ToString();
+                    int myId = int.Parse(myIdstr);
+                    var myRole = dr["rol_id"].ToString();
+                    conn.Close();
+                    dr.Close();
 
-                    SqlCommand cmdLoginCheck = new SqlCommand("SELECT use_id,use_email,use_password,rol_id FROM Users WHERE use_email=@email and use_password=@password", conn);
-                    cmdLoginCheck.Parameters.Add(new SqlParameter("@email", Email.Text));
-                    cmdLoginCheck.Parameters.Add(new SqlParameter("@password", Password.Text));
-                    SqlDataReader dr = cmdLoginCheck.ExecuteReader();
+                    Session["UserId"] = myId;
+                    Session["UserEmail"] = Email.Text;
+                    Session["UserRole"] = myRole;
+                    Session["LoggedIn"] = "true";
 
-                    if (dr.Read())
+                    //remember me
+                    //if (this.RememberMe != null && this.RememberMe.Checked == true)
+                    //{
+                    //    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                    //    Email.Text,
+                    //    DateTime.Now,
+                    //    DateTime.Now.AddMinutes(30),
+                    //    isPersistent,
+                    //    Email.Text,
+                    //    FormsAuthentication.FormsCookiePath);
+
+                    //    Encrypt the ticket.
+                    //    string encTicket = FormsAuthentication.Encrypt(ticket);
+
+                    //    Create the cookie.
+                    //   Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+                    //    Redirect back to original URL.
+                    //   Response.Redirect(FormsAuthentication.GetRedirectUrl(Email.Text, isPersistent));
+                    //}
+                    //Customer login
+                    if (myRole.Equals("1"))
                     {
-                        var myIdstr = dr["use_id"].ToString();
-                        int myId = int.Parse(myIdstr);
-                        var myRole = dr["rol_id"].ToString();
-                        conn.Close();
-                        dr.Close();
-
-                        Session["UserId"] = myId;
-                        Session["UserEmail"] = Email.Text;
-                        Session["UserRole"] = myRole;
-                        Session["LoggedIn"] = "true";
-
-                        //remember me
-                        if (this.RememberMe != null && this.RememberMe.Checked == true)
-                        {
-                            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
-                            Email.Text,
-                            DateTime.Now,
-                            DateTime.Now.AddMinutes(30),
-                            isPersistent,
-                            Email.Text,
-                            FormsAuthentication.FormsCookiePath);
-
-                            // Encrypt the ticket.
-                            string encTicket = FormsAuthentication.Encrypt(ticket);
-
-                            // Create the cookie.
-                            Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-
-                            // Redirect back to original URL.
-                            //Response.Redirect(FormsAuthentication.GetRedirectUrl(Email.Text, isPersistent));
-                        }
-                        //Customer login
-                        if (myRole.Equals("1"))
-                        {
-                            Response.Redirect("/CheckMyShipping",false);
-                        }
-                        //Staff login
-                        else if (myRole.Equals("2"))
-                        {
-                            Response.Redirect("~/Staff/StaffApproval", false);
-                        }
+                        Response.Redirect("/CheckMyShipping",false);
                     }
-                    else
+                    //Staff login
+                    else if (myRole.Equals("2"))
                     {
-                        //error message
-                        Type cstype = this.GetType();
-                        ClientScriptManager cs = Page.ClientScript;
-                        if (!cs.IsStartupScriptRegistered(cstype, "PopupScript"))
-                        {
-                            String cstext = "alert('Invalid User! Try again with VALID username and password');";
-                            cs.RegisterStartupScript(cstype, "PopupScript", cstext, true);
-                        }
+                        Response.Redirect("~/Staff/StaffApproval", false);
                     }
-                    if (!dr.IsClosed)
-                        dr.Close();
+                    //Admin login
+                    else if (myRole.Equals("3"))
+                    {
+                        Response.Redirect("~/Admin/CheckUser", false);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    //MessageBox.Show(ex.Message);
+                    //error message
+                    Type cstype = this.GetType();
+                    ClientScriptManager cs = Page.ClientScript;
+                    if (!cs.IsStartupScriptRegistered(cstype, "PopupScript"))
+                    {
+                        String cstext = "alert('Invalid User! Try again with VALID username and password');";
+                        cs.RegisterStartupScript(cstype, "PopupScript", cstext, true);
+                    }
                 }
-                finally
-                {
-                    if (conn.State == System.Data.ConnectionState.Open)
-                        conn.Close();
-                    conn.Dispose();
-                }
-
-
-
+                if (!dr.IsClosed)
+                    dr.Close();
             }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+                conn.Dispose();
+            }
+
+
+
+            //}
         }
     }
 }

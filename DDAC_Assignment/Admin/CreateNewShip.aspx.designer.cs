@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DDAC_Assignment.Account {
+namespace DDAC_Assignment.Admin {
     
     
-    public partial class Manage {
+    public partial class CreateNewShip {
         
         /// <summary>
         /// ErrorMessage control.
@@ -22,30 +22,39 @@ namespace DDAC_Assignment.Account {
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// Password control.
+        /// tboxDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox tboxDesc;
         
         /// <summary>
-        /// ConfirmPassword control.
+        /// tboxName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox tboxName;
         
         /// <summary>
-        /// btnNext control.
+        /// tboxPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
+        protected global::System.Web.UI.WebControls.TextBox tboxPrice;
+        
+        /// <summary>
+        /// regexPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPrice;
     }
 }

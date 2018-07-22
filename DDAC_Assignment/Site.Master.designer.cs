@@ -58,6 +58,42 @@ namespace DDAC_Assignment {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_staffReceival;
         
         /// <summary>
+        /// btn_manageUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_manageUser;
+        
+        /// <summary>
+        /// btn_managePort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_managePort;
+        
+        /// <summary>
+        /// btn_manageShip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_manageShip;
+        
+        /// <summary>
+        /// btn_manageContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_manageContainer;
+        
+        /// <summary>
         /// btn_register control.
         /// </summary>
         /// <remarks>

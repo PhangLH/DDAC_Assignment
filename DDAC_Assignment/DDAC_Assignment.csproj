@@ -199,6 +199,15 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\CheckContainer.aspx" />
+    <Content Include="Admin\CheckPort.aspx" />
+    <Content Include="Admin\CheckShip.aspx" />
+    <Content Include="Admin\CheckUser.aspx" />
+    <Content Include="Admin\CreateNewContainer.aspx" />
+    <Content Include="Admin\CreateNewPort.aspx" />
+    <Content Include="Admin\CreateNewShip.aspx" />
+    <Content Include="Admin\RegisterStaffUser.aspx" />
+    <Content Include="Admin\UpdatePort.aspx" />
     <Content Include="CheckMyShipping.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -374,6 +383,69 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\CheckContainer.aspx.cs">
+      <DependentUpon>CheckContainer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CheckContainer.aspx.designer.cs">
+      <DependentUpon>CheckContainer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CheckPort.aspx.cs">
+      <DependentUpon>CheckPort.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CheckPort.aspx.designer.cs">
+      <DependentUpon>CheckPort.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CheckShip.aspx.cs">
+      <DependentUpon>CheckShip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CheckShip.aspx.designer.cs">
+      <DependentUpon>CheckShip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CheckUser.aspx.cs">
+      <DependentUpon>CheckUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CheckUser.aspx.designer.cs">
+      <DependentUpon>CheckUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreateNewContainer.aspx.cs">
+      <DependentUpon>CreateNewContainer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CreateNewContainer.aspx.designer.cs">
+      <DependentUpon>CreateNewContainer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreateNewPort.aspx.cs">
+      <DependentUpon>CreateNewPort.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CreateNewPort.aspx.designer.cs">
+      <DependentUpon>CreateNewPort.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreateNewShip.aspx.cs">
+      <DependentUpon>CreateNewShip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CreateNewShip.aspx.designer.cs">
+      <DependentUpon>CreateNewShip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RegisterStaffUser.aspx.cs">
+      <DependentUpon>RegisterStaffUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RegisterStaffUser.aspx.designer.cs">
+      <DependentUpon>RegisterStaffUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdatePort.aspx.cs">
+      <DependentUpon>UpdatePort.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdatePort.aspx.designer.cs">
+      <DependentUpon>UpdatePort.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -457,7 +529,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="WebJob\" />
   </ItemGroup>

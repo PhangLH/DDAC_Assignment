@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="DDAC_Assignment.Account.Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterStaffUser.aspx.cs" Inherits="DDAC_Assignment.Admin.RegisterStaffUser" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <script type="text/javascript">
@@ -12,14 +12,15 @@
     </script>
 </asp:Content>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <h2><%: Title %></h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
     <div class="form-horizontal">
-        <h4>Create a new account</h4>
+        <h4>Create a staff account</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
@@ -73,4 +74,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>
