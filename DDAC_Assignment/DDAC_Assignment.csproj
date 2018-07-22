@@ -457,7 +457,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
+    <Folder Include="WebJob\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
