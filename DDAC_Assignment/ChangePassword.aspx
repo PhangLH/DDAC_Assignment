@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="DDAC_Assignment.Account.Manage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="DDAC_Assignment.ChangePassword" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <script type="text/javascript">
@@ -12,7 +12,7 @@
     </script>
 </asp:Content>
 
-<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2><%: Title %></h2>
     <p class="text-danger">
@@ -25,7 +25,7 @@
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">New Password</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
@@ -45,7 +45,7 @@
         
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button id="btnNext" runat="server" OnClick="UpdatePort_Click" Text="Update" CssClass="btn btn-default" />
+                <asp:Button id="btnNext" runat="server" OnClick="ChangePassword_Click" Text="Change Password" CssClass="btn btn-default" />
             </div>
         </div>
     </div>

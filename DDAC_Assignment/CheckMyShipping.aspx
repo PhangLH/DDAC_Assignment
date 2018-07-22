@@ -15,6 +15,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="margin-top:20px;">
         
+        <div class="form-horizontal">
+            <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="tboxName" CssClass="col-md-2 control-label">Search By Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" OnTextChanged="tboxSearch_TextChanged" AutoPostBack="true" />
+            </div>
+        </div>
+        </div>
+
         <asp:GridView ID="gvCheckShipping" CssClass="table table-striped table-bordered table-condensed" runat="server" 
             AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="dsCheckShipping" OnRowCommand="gvCheckShipping_RowCommand">
             <Columns>

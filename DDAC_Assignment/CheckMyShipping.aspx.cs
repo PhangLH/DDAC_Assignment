@@ -83,5 +83,10 @@ namespace DDAC_Assignment
                 lblEmptyTable.Visible = false;
             }
         }
+
+        protected void tboxSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
