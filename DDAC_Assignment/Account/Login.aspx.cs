@@ -96,26 +96,6 @@ namespace DDAC_Assignment.Account
                     Session["UserRole"] = myRole;
                     Session["LoggedIn"] = "true";
 
-                    //remember me
-                    //if (this.RememberMe != null && this.RememberMe.Checked == true)
-                    //{
-                    //    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
-                    //    Email.Text,
-                    //    DateTime.Now,
-                    //    DateTime.Now.AddMinutes(30),
-                    //    isPersistent,
-                    //    Email.Text,
-                    //    FormsAuthentication.FormsCookiePath);
-
-                    //    Encrypt the ticket.
-                    //    string encTicket = FormsAuthentication.Encrypt(ticket);
-
-                    //    Create the cookie.
-                    //   Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
-
-                    //    Redirect back to original URL.
-                    //   Response.Redirect(FormsAuthentication.GetRedirectUrl(Email.Text, isPersistent));
-                    //}
                     //Customer login
                     if (myRole.Equals("1"))
                     {

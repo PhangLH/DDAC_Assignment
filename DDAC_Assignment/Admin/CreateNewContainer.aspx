@@ -57,7 +57,7 @@
         
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateContainer_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateContainer_Click" Text="Create" CssClass="btn btn-default" />
             </div>
         </div>
     </div>
