@@ -102,6 +102,10 @@ namespace DDAC_Assignment
                 var eCoord = new GeoCoordinate(endLat, endLong);
 
                 double price = sCoord.GetDistanceTo(eCoord) / 1000;
+                if (price > 1000)
+                {
+                    price = 1000;
+                }
                 double finalPrice = Math.Round(price, 2);
 
                 currentPrice = currentPrice + finalPrice;

@@ -40,7 +40,7 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="tboxLat" 
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The latitude field is required" />
                 <asp:RegularExpressionValidator ID="regexNumberDot" runat="server" ControlToValidate="tboxLat" CssClass="text-danger"
-                    ErrorMessage="Invalid Value e.g. 123.123" Display="Dynamic" ValidationExpression="(?<=^| )\d+\.\d+(?=$| )"></asp:RegularExpressionValidator>
+                    ErrorMessage="Invalid Value e.g. 123.123 or -123.123" Display="Dynamic" ValidationExpression="^[-+]?[0-9]*\.?[0-9]+$"></asp:RegularExpressionValidator>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="tboxLong" 
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The longitude field is required" />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tboxLong" CssClass="text-danger"
-                    ErrorMessage="Invalid Value e.g. 123.123" Display="Dynamic" ValidationExpression="(?<=^| )\d+\.\d+(?=$| )"></asp:RegularExpressionValidator>
+                    ErrorMessage="Invalid Value e.g. 123.123" Display="Dynamic" ValidationExpression="^[-+]?[0-9]*\.?[0-9]+$"></asp:RegularExpressionValidator>
             </div>
         </div>
 
