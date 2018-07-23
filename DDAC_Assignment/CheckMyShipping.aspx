@@ -14,6 +14,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="margin-top:20px;">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="tboxSearch" CssClass="col-md-2 control-label">Search By Port Name</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="tboxSearch" CssClass="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <asp:Button runat="server" ID="btnSearch" OnClick="btnSearch_Click" Text="Search" CssClass="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        
 
         <asp:GridView ID="gvCheckShipping" CssClass="table table-striped table-bordered table-condensed" runat="server" 
             AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="dsCheckShipping" OnRowCommand="gvCheckShipping_RowCommand">
@@ -30,15 +44,18 @@
                 <asp:ButtonField CommandName="DeleteRow" Text="Delete" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="dsCheckShipping" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT ShippingRequest.sr_id AS ID, ShippingRequest.sr_status AS Status, ShippingRequest.sr_desc AS Description, ShippingRequest.sr_creationdatetime AS CreationDateTime, ShippingRequest.sr_price AS Price, Port.por_name AS StartPort, Port_1.por_name AS EndPort, Ship.shi_name AS ShipName, Container.con_name AS ContainerName FROM ShippingRequest INNER JOIN Port ON ShippingRequest.sr_startportid = Port.por_id INNER JOIN Port AS Port_1 ON ShippingRequest.sr_endportid = Port_1.por_id INNER JOIN Ship ON ShippingRequest.shi_id = Ship.shi_id INNER JOIN Container ON ShippingRequest.con_id = Container.con_id WHERE (ShippingRequest.use_id = @userid)">
+        <asp:SqlDataSource ID="dsCheckShipping" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" FilterExpression="StartPort LIKE '%{0}%' or EndPort LIKE '%{0}%'" SelectCommand="SELECT ShippingRequest.sr_id AS ID, ShippingRequest.sr_status AS Status, ShippingRequest.sr_desc AS Description, ShippingRequest.sr_creationdatetime AS CreationDateTime, ShippingRequest.sr_price AS Price, Port.por_name AS StartPort, Port_1.por_name AS EndPort, Ship.shi_name AS ShipName, Container.con_name AS ContainerName FROM ShippingRequest INNER JOIN Port ON ShippingRequest.sr_startportid = Port.por_id INNER JOIN Port AS Port_1 ON ShippingRequest.sr_endportid = Port_1.por_id INNER JOIN Ship ON ShippingRequest.shi_id = Ship.shi_id INNER JOIN Container ON ShippingRequest.con_id = Container.con_id WHERE (ShippingRequest.use_id = @userid)">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="userid" SessionField="UserId" />
             </SelectParameters>
+            <filterparameters>
+                <asp:controlparameter controlid="tboxSearch" propertyname="Text" />
+            </filterparameters>
         </asp:SqlDataSource>
 
         <div class="form-horizontal">
             <div class="form-group">
-                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no PendingApproval in this Port!</asp:Label>
+                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no ShippingRequest!</asp:Label>
             </div>
         </div>
 

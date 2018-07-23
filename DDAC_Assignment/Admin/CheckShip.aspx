@@ -31,7 +31,7 @@
 
         <div class="form-horizontal">
             <div class="form-group">
-                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no PendingReceival in this Port!</asp:Label>
+                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no Ship!</asp:Label>
             </div>
         </div>
 

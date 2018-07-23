@@ -26,7 +26,7 @@ namespace DDAC_Assignment
                 int selectedId = int.Parse(gvCheckShipping.Rows[rowIndex].Cells[0].Text);
                 var status = gvCheckShipping.Rows[rowIndex].Cells[1].Text;
 
-                if (!status.Equals("PendingApproval"))
+                if (!status.Equals("PendingApproval") && !status.Equals("Rejected"))
                 {
                     //error message
                     Type cstype = this.GetType();
@@ -82,6 +82,11 @@ namespace DDAC_Assignment
             {
                 lblEmptyTable.Visible = false;
             }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -53,6 +53,37 @@ namespace DDAC_Assignment.Staff
                     Response.Redirect(Request.RawUrl);
                 }
             }
+            else if (command.Equals("RejectRow"))
+            {
+                int rowIndex = int.Parse(e.CommandArgument.ToString());
+                int selectedId = int.Parse(gvStaffApproval.Rows[rowIndex].Cells[0].Text);
+                var status = WebConfigurationManager.AppSettings["rejectedStatusName"];
+
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+                string approveShippingRequest = "UPDATE ShippingRequest SET sr_status = @status WHERE sr_id = @id;";
+                SqlCommand cmdApproveShippingRequest = new SqlCommand(approveShippingRequest, conn);
+
+                cmdApproveShippingRequest.Parameters.Add("@id", SqlDbType.Int);
+                cmdApproveShippingRequest.Parameters["@id"].Value = selectedId;
+                cmdApproveShippingRequest.Parameters.Add("@status", SqlDbType.NVarChar);
+                cmdApproveShippingRequest.Parameters["@status"].Value = status;
+
+                conn.Open();
+                int success = cmdApproveShippingRequest.ExecuteNonQuery();
+                conn.Close();
+
+                //not success
+                if (success == 0)
+                {
+                }
+                //success
+                else
+                {
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
         }
 
         private void CheckEmptyTable()

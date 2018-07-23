@@ -97,6 +97,7 @@ namespace DDAC_Assignment
                     //customer role
                     if (myRole.Equals("1"))
                     {
+                        btn_receivedLogHistory.Visible = false;
                         btn_manageShip.Visible = false;
                         btn_manageContainer.Visible = false;
                         btn_manageUser.Visible = false;
@@ -113,6 +114,7 @@ namespace DDAC_Assignment
                     //staff role
                     else if (myRole.Equals("2"))
                     {
+                        btn_receivedLogHistory.Visible = true;
                         btn_manageShip.Visible = false;
                         btn_manageContainer.Visible = false;
                         btn_manageUser.Visible = false;
@@ -129,6 +131,7 @@ namespace DDAC_Assignment
                     //admin role
                     else if (myRole.Equals("3"))
                     {
+                        btn_receivedLogHistory.Visible = false;
                         btn_manageShip.Visible = true;
                         btn_manageContainer.Visible = true;
                         btn_manageUser.Visible = true;

@@ -7,46 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DDAC_Assignment {
+namespace DDAC_Assignment.Staff {
     
     
-    public partial class CheckMyShipping {
+    public partial class ReceivedLogAndHistory {
         
         /// <summary>
-        /// tboxSearch control.
+        /// gvReceived control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxSearch;
+        protected global::System.Web.UI.WebControls.GridView gvReceived;
         
         /// <summary>
-        /// btnSearch control.
+        /// dsReceived control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// gvCheckShipping control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCheckShipping;
-        
-        /// <summary>
-        /// dsCheckShipping control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCheckShipping;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsReceived;
         
         /// <summary>
         /// lblEmptyTable control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffApproval.aspx.cs" Inherits="DDAC_Assignment.Staff.StaffApproval" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReceivedLogAndHistory.aspx.cs" Inherits="DDAC_Assignment.Staff.ReceivedLogAndHistory" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <script type="text/javascript">
@@ -13,10 +13,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div style="margin-top:20px;">
 
-         <asp:GridView ID="gvStaffApproval" CssClass="table table-striped table-bordered table-condensed" runat="server" 
-            AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="dsStaffApproval" OnRowCommand="gvStaffApproval_RowCommand">
+    <div style="margin-top:20px;">
+
+         <asp:GridView ID="gvReceived" CssClass="table table-striped table-bordered table-condensed" runat="server" 
+            AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="dsReceived">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
@@ -25,20 +26,16 @@
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
                 <asp:BoundField DataField="StartPort" HeaderText="StartPort" SortExpression="StartPort" />
                 <asp:BoundField DataField="EndPort" HeaderText="EndPort" SortExpression="EndPort" />
-                <asp:ButtonField CommandName="Approve" Text="Approve" />
-                <asp:ButtonField CommandName="RejectRow" Text="Reject" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="dsStaffApproval" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT ShippingRequest.sr_id AS ID, ShippingRequest.sr_status AS Status, ShippingRequest.sr_desc AS Description, ShippingRequest.sr_creationdatetime AS CreationDateTime, ShippingRequest.sr_price AS Price, Port.por_name AS StartPort, Port_1.por_name AS EndPort FROM ShippingRequest INNER JOIN Port ON ShippingRequest.sr_startportid = Port.por_id INNER JOIN Port AS Port_1 ON ShippingRequest.sr_endportid = Port_1.por_id WHERE (Port.use_id = @userid) AND (ShippingRequest.sr_status = 'PendingApproval')">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="" Name="userid" SessionField="UserId" />
-            </SelectParameters>
+        <asp:SqlDataSource ID="dsReceived" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT ShippingRequest.sr_id AS ID, ShippingRequest.sr_status AS Status, ShippingRequest.sr_desc AS Description, ShippingRequest.sr_creationdatetime AS CreationDateTime, ShippingRequest.sr_price AS Price, Port.por_name AS StartPort, Port_1.por_name AS EndPort FROM ShippingRequest INNER JOIN Port ON ShippingRequest.sr_startportid = Port.por_id INNER JOIN Port AS Port_1 ON ShippingRequest.sr_endportid = Port_1.por_id WHERE (ShippingRequest.sr_status = 'Received')">
         </asp:SqlDataSource>
 
         <div class="form-horizontal">
             <div class="form-group">
-                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no PendingApproval in this Port!</asp:Label>
+                <asp:Label runat="server" id="lblEmptyTable" style="text-align: left;" CssClass="col-md-12 control-label" Font-Size="Large" Visible="false">There is no ReceivedShipping!</asp:Label>
             </div>
         </div>
      </div>
+
 </asp:Content>

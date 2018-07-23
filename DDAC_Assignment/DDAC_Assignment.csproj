@@ -248,6 +248,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Staff\ReceivedLogAndHistory.aspx" />
     <Content Include="Staff\StaffApproval.aspx" />
     <Content Include="Staff\StaffReceival.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -384,6 +385,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\ReceivedLogAndHistory.aspx.cs">
+      <DependentUpon>ReceivedLogAndHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\ReceivedLogAndHistory.aspx.designer.cs">
+      <DependentUpon>ReceivedLogAndHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\StaffApproval.aspx.cs">
       <DependentUpon>StaffApproval.aspx</DependentUpon>
