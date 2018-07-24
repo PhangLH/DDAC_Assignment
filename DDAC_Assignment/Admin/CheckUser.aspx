@@ -28,7 +28,7 @@
                 <asp:ButtonField CommandName="DeleteRow" Text="Delete" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="dsCheckUser" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT use_id, use_email, use_password, rol_id, use_name, use_contactno FROM Users WHERE (rol_id &lt;&gt; @adminroleid)">
+        <asp:SqlDataSource ID="dsCheckUser" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT use_id, use_email, use_password, rol_id, use_name, use_contactno FROM Users WITH (INDEX(Users_role)) WHERE (rol_id &lt;&gt; @adminroleid)">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="adminroleid" SessionField="UserRole" />
             </SelectParameters>

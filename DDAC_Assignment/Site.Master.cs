@@ -146,6 +146,22 @@ namespace DDAC_Assignment
                         btn_manageaccount.Visible = true;
                     }
                 }
+                //else
+                //{
+                //    var userid = Session["UserId"];
+                //    if (!userid.Equals(""))
+                //    {
+                //        //error message
+                //        Type cstype = this.GetType();
+                //        ClientScriptManager cs = Page.ClientScript;
+                //        if (!cs.IsStartupScriptRegistered(cstype, "PopupScript"))
+                //        {
+                //            String cstext = "alert('Session timeout! Please login to the application again');";
+                //            cs.RegisterStartupScript(cstype, "PopupScript", cstext, true);
+                //        }
+                //        Response.Redirect("~/Account/Logout", false);
+                //    }
+                //}
             }            
         }
 
